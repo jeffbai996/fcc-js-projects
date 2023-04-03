@@ -30,13 +30,19 @@ function convertToRoman(num) {
     return "Number must be between 1 and 3999.";
   }
   else {
+    // loop through the romanNumList object
     for (let key in romanNumList) {
+      // divide the input number by the arabic number and round down to get the number of times the roman numeral is repeated
       a = Math.floor(num / romanNumList[key]);
+      // if the number of times the roman numeral is repeated is greater than 0, add the roman numeral to the roman string
       if (a >= 0) {
+        // repeat the roman numeral the number of times it is repeated
         for (let i = 0; i < a; i++) {
+          // add the roman numeral to the roman string
           roman += key;
         }
       }
+      // subtract the arabic number from the input number
       num = num % romanNumList[key];
     }
   }
